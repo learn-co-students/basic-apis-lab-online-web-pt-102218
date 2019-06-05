@@ -5,3 +5,20 @@
   <%= submit_tag "Search Github!" %>
 <% end %>
 
+<div>
+  <% if @error %>
+    <p><%= @error %></p>
+  <% elsif @items %>
+  <ul>
+      <% if @items %>
+        <% @items.each do |item| %>
+          <li>
+              <%= item['full_name'] %><br>
+              <%= item['description'] %><br>
+              <a href='<%= item["html_url"] %>'> <%= item['html_url'] %> </a><br><br>
+          </li>
+        <% end %>
+      <% end %>
+  </ul>
+  <div>
+  <% end %>
